@@ -18,7 +18,7 @@ class TestSnokeSuite():
     options.add_argument('--ignore-certificate-errors') #bypass the SSL
 
     self.driver = webdriver.Chrome(options=options)
-    self.driver = webdriver.Chrome()
+    #self.driver = webdriver.Chrome()
     self.vars = {}
   
   def teardown_method(self, method):
