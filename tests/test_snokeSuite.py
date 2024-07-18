@@ -11,14 +11,11 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.chrome.options import Options
 
-
-
 class TestSnokeSuite():
   def setup_method(self, method):
     options = Options ()
     options.add_argument("--headless=new")
-    options.add_argument('--ignore-certificate-errors')
-    options.add_argument('--ignore-ssl-errors')
+    self.driver = webdriver.Chrome(options=options)
     self.driver = webdriver.Chrome()
     self.vars = {}
   
@@ -59,8 +56,6 @@ class TestSnokeSuite():
     self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
     self.driver.set_window_size(1936, 1048)
     self.driver.find_element(By.LINK_TEXT, "Admin").click()
-    elements = self.driver.find_elements(By.ID, "username")
-    assert len(elements) > 0
     self.driver.find_element(By.ID, "username").click()
     self.driver.find_element(By.ID, "password").click()
     self.driver.find_element(By.CSS_SELECTOR, ".mysubmit:nth-child(4)").click()
