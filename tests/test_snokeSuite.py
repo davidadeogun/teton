@@ -15,6 +15,8 @@ class TestSnokeSuite():
   def setup_method(self, method):
     options = Options ()
     options.add_argument("--headless=new")
+    options.add_argument('--ignore-certificate-errors') #bypass the SSL
+
     self.driver = webdriver.Chrome(options=options)
     self.driver = webdriver.Chrome()
     self.vars = {}
