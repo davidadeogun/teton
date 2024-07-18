@@ -11,10 +11,14 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.chrome.options import Options
 
+
+
 class TestSnokeSuite():
   def setup_method(self, method):
     options = Options ()
     options.add_argument("--headless=new")
+    options.add_argument('--ignore-certificate-errors')
+    options.add_argument('--ignore-ssl-errors')
     self.driver = webdriver.Chrome()
     self.vars = {}
   
